@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MusicApp2</string>
+    <string name="ingresa_el_nombre_del_usuario_que_quieres_eliminar">Ingresa el nombre del usuario que quieres eliminar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="atras">ATRAS</string>
+    <string name="eliminarr">ELIMINAR</string>
+    <string name="mail">Mail:</string>
+    <string name="estatus">estatus:</string>
+    <string name="username">userName:</string>
+    <string name="ingresa_el_texto">Ingresa el texto</string>
+    <string name="eliminarrr">Eliminar</string>
 </resources>

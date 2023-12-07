@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class login extends AppCompatActivity {
 
-    TextView logsignup;
+    TextView logsignup, masbtn;
     Button button;
     EditText email, password;
     FirebaseAuth auth;
@@ -41,11 +41,21 @@ public class login extends AppCompatActivity {
         email = findViewById(R.id.editTexLogEmail);
         password = findViewById(R.id.editTextLogPassword);
         logsignup = findViewById(R.id.logsignup);
+        masbtn = findViewById(R.id.masbtn);
 
         logsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(login.this,Registration.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        masbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this,mas.class);
                 startActivity(intent);
                 finish();
             }
@@ -60,17 +70,17 @@ public class login extends AppCompatActivity {
 
                 if ((TextUtils.isEmpty(Email))){
                     progressDialog.dismiss();
-                    Toast.makeText(login.this, "Enter The Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Digita el EMAIL", Toast.LENGTH_SHORT).show();
                 }else if (TextUtils.isEmpty(pass)){
                     progressDialog.dismiss();
-                    Toast.makeText(login.this, "Enter The Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Digita la contraseña", Toast.LENGTH_SHORT).show();
                 }else if (!Email.matches(emailPattern)){
                     progressDialog.dismiss();
-                    email.setError("Give Proper Email Address");
+                    email.setError("Digita un EMAIL correcto");
                 }else if (password.length()<6){
                     progressDialog.dismiss();
-                    password.setError("More Then Six Characters");
-                    Toast.makeText(login.this, "Password Needs To Be Longer Then Six Characters", Toast.LENGTH_SHORT).show();
+                    password.setError("Mas de 6 caracteres");
+                    Toast.makeText(login.this, "La contraseña tiene que ser de mas de 6 caracteres", Toast.LENGTH_SHORT).show();
                 }else {
                     auth.signInWithEmailAndPassword(Email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
