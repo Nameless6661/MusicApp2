@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Ingresa el email a buscar"/>
+
+    <Button
+        android:id="@+id/buscarBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:layout_marginTop="20sp"/>
+
+
+    <EditText
+        android:id="@+id/txtMail"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Email de la cuenta"/>
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Ingresa la contrasena"/>
+
+    <EditText
+        android:id="@+id/textstatus"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Ingresa el estatus"/>
+
+    <EditText
+        android:id="@+id/textuserName"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Ingresa el userName"/>
+
+    <Button
+        android:id="@+id/modificarbtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/modificar"
+        android:layout_marginTop="20sp"/>
+
+    <Button
+        android:id="@+id/atras"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/black"
+        android:text="Atras"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+
+
+</LinearLayout>

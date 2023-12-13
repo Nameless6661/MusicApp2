@@ -1,6 +1,8 @@
 package com.example.musicapp2;
 
-public class Users {
+import java.io.Serializable;
+
+public class Users implements Serializable {
     String profilepic,mail,userName,password,userId,lastMessage,status;
 
     public Users(){}
@@ -12,7 +14,9 @@ public class Users {
         this.password = password;
         this.profilepic = profilepic;
         this.status = status;
+
     }
+
 
     public String getProfilepic() {
         return profilepic;

@@ -17,21 +17,19 @@ public class mas extends AppCompatActivity {
     TextView loginbut;
     FirebaseDatabase database;
     FirebaseStorage storage;
-    Button listButton, elibutton ,modButton;
-    private DatabaseReference mDataBase;
+    Button listButton, elibutton ,modbutton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mas);
-
-        mDataBase = FirebaseDatabase.getInstance().getReference();
         loginbut = findViewById(R.id.loginbut);
         listButton = findViewById(R.id.listbutton);
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
         elibutton = findViewById(R.id.elibutton);
-        modButton = findViewById(R.id.modbutton);
+        modbutton = findViewById(R.id.modbutton);
 
 
 
@@ -48,7 +46,7 @@ public class mas extends AppCompatActivity {
     listButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(mas.this,listar.class);
+            Intent intent = new Intent(mas.this,RetreiveData.class);
             startActivity(intent);
             finish();
 
@@ -65,6 +63,14 @@ public class mas extends AppCompatActivity {
             }
         });
 
+        modbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mas.this, modificar.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 

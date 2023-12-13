@@ -23,6 +23,7 @@ public class eliminar extends AppCompatActivity {
     Button btneliminar, atras;
     EditText txt;
     DatabaseReference databaseReference;
+    String userEmailToDelete;
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +32,14 @@ public class eliminar extends AppCompatActivity {
         btneliminar = findViewById(R.id.eliminarbtn);
         atras = findViewById(R.id.atras);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        EditText txt = findViewById(R.id.txt); // Reemplaza con el ID de tu EditText
+        txt = findViewById(R.id.txt); // Reemplaza con el ID de tu EditText
 
 
-
-
-        Button btneliminar = findViewById(R.id.eliminarbtn);
         btneliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 eliminarUsuario();
-            }
-        });
-
-
-
-        btneliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                databaseReference.child("user").removeValue();
             }
         });
 
@@ -64,13 +54,9 @@ public class eliminar extends AppCompatActivity {
     }
 
     private void eliminarUsuario() {
-        // Obtén el email del usuario desde el EditText
-        String userEmailToDelete = txt.getText().toString();
-
-        // Verifica si el email no está vacío antes de continuar
+        userEmailToDelete = txt.getText().toString();
         if (!TextUtils.isEmpty(userEmailToDelete)) {
-            // Crea una consulta para encontrar el nodo del usuario por su email
-            Query query = databaseReference.child("user").orderByChild("email").equalTo(userEmailToDelete);
+            Query query = databaseReference.child("user").orderByChild("mail").equalTo(userEmailToDelete);
 
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -80,6 +66,7 @@ public class eliminar extends AppCompatActivity {
                         String userKey = userSnapshot.getKey();
 
                         // Elimina el usuario utilizando la clave obtenida
+                        assert userKey != null;
                         databaseReference.child("user").child(userKey).removeValue();
 
                         // Muestra un mensaje de éxito
@@ -90,8 +77,13 @@ public class eliminar extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                     // Manejar errores si es necesario
+                    Toast.makeText(getApplicationContext(), "Error en la consulta a Firebase: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+
                 }
             });
+
+        
         } else {
             // Manejar el caso en el que el email esté vacío
             Toast.makeText(getApplicationContext(), "Ingrese un correo electrónico", Toast.LENGTH_SHORT).show();

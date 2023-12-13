@@ -9,4 +9,10 @@
     <string name="username">userName:</string>
     <string name="ingresa_el_texto">Ingresa el texto</string>
     <string name="eliminarrr">Eliminar</string>
+    <string name="ingresa_la_contrase_a">ingresa la contraseña</string>
+    <string name="ingresa_el_mail">ingresa el mail</string>
+    <string name="ingresa_el_estatus">ingresa el estatus</string>
+    <string name="ingresa_el_nombre_de_usuario">ingresa el nombre de usuario</string>
+    <string name="modificar">Modificar</string>
+    <string name="atrass">Atras</string>
 </resources>
